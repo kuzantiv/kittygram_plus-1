@@ -29,7 +29,8 @@ class Hex2NameColor(serializers.Field):
 
 
 class CatSerializer(serializers.ModelSerializer):
-    achievements = AchievementSerializer(many=True)
+    achievements = AchievementSerializer(required=False,
+                                         many=True)
     age = serializers.SerializerMethodField()
     # Теперь поле примет только значение, упомянутое в списке CHOICES
     color = serializers.ChoiceField(choices=CHOICES)
